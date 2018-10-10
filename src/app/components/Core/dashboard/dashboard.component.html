@@ -1,0 +1,289 @@
+﻿<div class="wrapper">
+    <app-header></app-header>
+
+    <app-sidebar></app-sidebar>
+
+    <div class="content-wrapper" style="min-height: 916px;">
+        <section class="content-header" style="padding-top: 25px; padding-bottom: 10px">
+            <h1>
+                Dashboard
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    <a routerLink="">
+                        <i class="ion ion-android-home"></i> Home</a>
+                </li>
+                <li class="active">Dashboard</li>
+            </ol>
+        </section>
+
+        <section class="content">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box">
+                        <span class="info-box-icon ">
+                            <img src="/assets/dist/img/new-order.png" alt="">
+                        </span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">New Orders</span>
+                            <span class="info-box-number">{{newOrders}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box">
+                        <span class="info-box-icon ">
+                            <img src="/assets/dist/img/orders.png" alt="">
+                        </span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Pending Orders</span>
+                            <span class="info-box-number">{{pendingOrders}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix visible-sm-block"></div>
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box">
+                        <span class="info-box-icon ">
+                            <img src="/assets/dist/img/sales.png" alt="">
+                        </span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Completed Orders</span>
+                            <span class="info-box-number">{{completedOrders}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box">
+                        <span class="info-box-icon ">
+                            <img src="/assets/dist/img/users.png" alt="">
+                        </span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Approved Products</span>
+                            <span class="info-box-number">{{approvedProducts}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box">
+                        <span class="info-box-icon">
+                            <img src="/assets/dist/img/users.png" alt="">
+                        </span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Pending Products</span>
+                            <span class="info-box-number">{{pendingProducts}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Monthly Recap Report</h3>
+
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+
+
+                            </div>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p class="p-r-10" style="padding: 10px">
+                                        <span>
+                                            <span>Sales:</span>
+                                            <img src="/assets/dist/img/calendar.png" width="20px" style="margin: 0 10px"> 1 Jan, 2017 -
+                                            <img src="/assets/dist/img/calendar.png" width="20px" style="margin: 0 10px"> 30 Dec, 2017</span>
+                                    </p>
+
+                                    <div class="chart">
+                                        <canvas id="salesChart" style="height: 65px; width: 257px;" height="65" width="257"></canvas>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-4">
+                                    <p class="">
+                                        <strong>Goal Completion</strong>
+                                    </p> <br>
+
+                                    <div class="progress-group">
+                                        <span class="progress-text">Add Products to Cart</span>
+                                        <span class="progress-number very-bold">0%</span>
+
+                                        <div class="progress progress-striped sm">
+                                            <div class="progress-bar progress-bar-aqua" style="width: 80%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="progress-group">
+                                        <span class="progress-text">Complete Purchase</span>
+                                        <span class="progress-number very-bold">0%</span>
+
+                                        <div class="progress progress-striped sm">
+                                            <div class="progress-bar progress-bar-red" style="width: 80%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="progress-group">
+                                        <span class="progress-text">Visit on Products</span>
+                                        <span class="progress-number very-bold">0%</span>
+
+                                        <div class="progress progress-striped sm">
+                                            <div class="progress-bar progress-bar-green" style="width: 80%"></div>
+                                        </div>
+                                    </div>
+                             
+                                </div> -->
+                            </div>
+                        </div>
+                        <!-- <div class="box-footer">
+                            <div class="row">
+                                <div class="col-sm-3 col-xs-6">
+                                    <div class="description-block border-right">
+                                        <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 0%</span>
+                                        <h5 class="description-header">0.00</h5>
+                                        <span class="description-text">Recent Visits</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 col-xs-6">
+                                    <div class="description-block border-right">
+                                        <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i>0%</span>
+                                        <h5 class="description-header"><del>N</del>0.00</h5>
+                                        <span class="description-text">Recent Purchases</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 col-xs-6">
+                                    <div class="description-block border-right">
+                                        <span class="description-percentage text-green"><i class="fa fa-caret-up"></i>0%</span>
+                                        <h5 class="description-header">0.00</h5>
+                                        <span class="description-text">Products</span>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div> -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+            <!-- Main row -->
+            <div class="row">
+                <!-- Left col -->
+                <div class="col-md-8">
+                    <!-- MAP & BOX PANE -->
+                    <!-- TABLE: LATEST ORDERS -->
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Latest Orders</h3>
+
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered datatable no-margin">
+                                    <thead>
+                                        <tr>
+                                            <!--                                             <th>Order ID</th>
+ -->
+                                            <th>Item</th>
+                                            <th>Quantity</th>
+                                            <th>Color</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of latestOrdersList">
+                                            <!--   <td><a routerLink="" style="font-weight: 300">OR9842</a></td> -->
+                                            <td>{{item.product.name}}</td>
+                                            <td>{{item.quantity}}</td>
+                                            <td>{{item?.color.name}}</td>
+                                            <!--   <td><span class="label label-success">{{item?.color.name}}</span></td> -->
+
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer clearfix">
+
+                            <!-- <a href="javascript:void(0)" class="btn btn-sm btn-accent btn-flat pull-right">View All Orders</a> -->
+                        </div>
+                        <!-- /.box-footer -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+
+                <div class="col-md-4">
+                    <!-- Info Boxes Style 2 -->
+                    <!-- PRODUCT LIST -->
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Recently Added Products</h3>
+
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <ul class="products-list product-list-in-box">
+                                <!-- <li class="item">
+                                    <div class="product-info">
+                                        <a routerLink="" class="product-title">
+                                            {{latestProduct.name}}
+                                            <span class="label ">N{{latestProduct.sale_price}}</span>
+                                        </a>
+                                    </div>
+                                </li> -->
+                            </ul>
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer text-center">
+                            <a href="javascript:void(0)" routerLink="/products" class="uppercase btn btn-accent btn-block">View All Products</a>
+                        </div>
+                        <!-- /.box-footer -->
+                    </div>
+                    <!-- /.box -->
+
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </section>
+        <!-- /.content -->
+        <!-- <app-footer></app-footer> -->
+    </div>
+</div>
