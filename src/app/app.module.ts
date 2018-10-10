@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -20,23 +21,23 @@ import { Globals } from './shared/api';
 import { AppComponent } from './app.component';
 
 import { FooterComponent } from './components/Core/footer/footer.component';
-import { HeaderComponent } from './components/Core/header/header.component';
 import { DashboardComponent } from './components/Core/dashboard/dashboard.component';
-import { SidebarComponent } from './components/Core/sidebar/sidebar.component';
+import { SharedModule } from './shared/shared.module';
+
 
 @NgModule({
     declarations: [
         AppComponent,
         FooterComponent,
-        HeaderComponent,
         DashboardComponent,
-        SidebarComponent
     ],
     imports: [
         CommonModule,
         AppRoutingModule,
         HttpClientModule,
-        HttpModule
+        HttpModule,
+        SharedModule,
+        BrowserAnimationsModule
     ],
     providers: [
         AuthGuard,

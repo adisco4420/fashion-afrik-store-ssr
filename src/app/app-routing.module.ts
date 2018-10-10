@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import {
     AuthGuardService as AuthGuard
@@ -14,11 +14,11 @@ import { DashboardComponent } from './components/Core/dashboard/dashboard.compon
 
 const routes: Routes = [
     { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
+    { path: '', loadChildren: './components/User/user.module#UserModule'},
     { path: '**', redirectTo: '/' },
 ];
-
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
     exports: [RouterModule]
 })
 export class AppRoutingModule { }
