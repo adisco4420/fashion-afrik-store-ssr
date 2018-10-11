@@ -15,6 +15,7 @@ import { DashboardComponent } from './components/Core/dashboard/dashboard.compon
 const routes: Routes = [
     { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
     { path: '', loadChildren: './components/User/user.module#UserModule'},
+    { path: '', loadChildren: './components/Store/store.module#StoreModule'},
     { path: '**', redirectTo: '/' },
 ];
 @NgModule({

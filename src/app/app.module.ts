@@ -27,8 +27,6 @@ import { FooterComponent } from './components/Core/footer/footer.component';
 import { DashboardComponent } from './components/Core/dashboard/dashboard.component';
 import { SharedModule } from './shared/shared.module';
 
-
-
 @NgModule({
     declarations: [
         AppComponent,
