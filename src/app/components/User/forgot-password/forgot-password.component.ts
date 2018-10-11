@@ -13,7 +13,7 @@ export class ForgotPasswordComponent implements OnInit {
   forgotForm: FormGroup;
   emailRequired: string = 'Email is required';
   emailInvalid: string = 'Email is invalid';
-  private formSubmitAttempt: boolean;
+  public formSubmitAttempt: boolean;
 
   constructor(fb: FormBuilder) {
     let emailRegex = '^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$';

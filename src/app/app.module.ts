@@ -17,6 +17,9 @@ import {
 
 import { Globals } from './shared/api';
 
+import { FilterPipe } from './pipes/filter.pipe';
+import { FileValidator } from './validators/file-input.validator';
+
 // component
 import { AppComponent } from './app.component';
 
@@ -25,11 +28,14 @@ import { DashboardComponent } from './components/Core/dashboard/dashboard.compon
 import { SharedModule } from './shared/shared.module';
 
 
+
 @NgModule({
     declarations: [
         AppComponent,
         FooterComponent,
         DashboardComponent,
+        FilterPipe,
+        FileValidator
     ],
     imports: [
         CommonModule,

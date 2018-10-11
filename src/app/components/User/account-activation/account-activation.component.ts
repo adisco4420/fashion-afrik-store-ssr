@@ -11,7 +11,9 @@ import 'rxjs/add/operator/switchMap';
 })
 export class AccountActivationComponent implements OnInit {
 
-  user: Object = {};
+  user: any = {
+    message: ''
+  };
   constructor(private userSrv: UserService, private route: ActivatedRoute) { }
 
   ngOnInit() {
