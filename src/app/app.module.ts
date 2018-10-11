@@ -17,7 +17,6 @@ import {
 
 import { Globals } from './shared/api';
 
-import { FilterPipe } from './pipes/filter.pipe';
 import { FileValidator } from './validators/file-input.validator';
 
 // component
@@ -32,7 +31,6 @@ import { SharedModule } from './shared/shared.module';
         AppComponent,
         FooterComponent,
         DashboardComponent,
-        FilterPipe,
         FileValidator
     ],
     imports: [

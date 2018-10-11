@@ -1,0 +1,181 @@
+<div class="wrapper">
+    <app-header></app-header>
+    <app-sidebar></app-sidebar>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper" style="min-height: 916px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>Manage Product</h1>
+            <ol class="breadcrumb">
+                <li>
+                    <a routerLink="#">
+                        <i class="ion-android-home"></i> Home</a>
+                </li>
+                <li class="active">Manage Product</li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box box-warning">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Featured Image</h3>
+                        </div>
+                        <div class="product-image-wrapper">
+                            <img src="{{product.banner_image}}" class="img-responsive" style="height:300px; margin: 0 auto; width: auto; padding: 10px;"
+                            />
+                            <!-- <div class="image-actions">
+                                <a (click)="removeBannerImage(product.id)" class="remove-image">
+                                    <i class="ion-close-round"></i>
+                                </a>
+                                <a (click)="addBannerImage()" class="add-image">
+                                    <i class="ion-plus-round"></i>
+                                </a>
+                            </div>   -->
+                        </div>
+
+                    </div>
+
+                    <div class="box">
+                        <h2 style="padding-left: 20px" class="box-title">Other Images</h2>
+                        <div style="padding-left: 20px">
+                            <div class="row">
+                                <div class="col" style="padding-left: 15px; padding-right: 50px;">
+                                    <input type="file" name="blah" class="single-file">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="other-images" style="padding: 20px">
+                            <div class="item" *ngFor="let item of allOther_images">
+                                <img src="{{item}}" alt="" style="height: 150px; width: 150px; object-fit: contain;">
+                                <span class="remove-img">&times;</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="box box-warning">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Product Information</h3>
+                        </div>
+                        <div class="box-body">
+                            <form role="form" [formGroup]="productForm" (ngSubmit)="updateProduct()" novalidate>
+                                <!-- text input -->
+                                <div class="form-group">
+                                    <label>Product ID</label>
+                                    <input type="text" class="form-control" [(ngModel)]="new_product.id" [formControl]="productForm.controls['id']" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Product Name</label>
+                                    <input type="text" class="form-control" [(ngModel)]="new_product.name" [formControl]="productForm.controls['name']" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Category</label>
+                                    <select class="form-control" [(ngModel)]="new_product.category" [formControl]="productForm.controls['productCategory']" (change)="fetchProductTypeForCategory($event)"
+                                        require>
+                                        <option *ngFor="let item of categorys" [selected]="product.l1category?.id === item.id" [value]="item.slug">{{item.name}}</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Product Type</label>
+                                    <select class="form-control" [(ngModel)]="new_product.productType" [formControl]="productForm.controls['productType']" (change)="fetchSubCatForTypes($event)">
+                                        <option *ngFor="let item of productTypes" [selected]="product.l2category?.id === item.id">{{item.name}}</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Sub-category</label>
+                                    <select class="form-control" [(ngModel)]="new_product.sub_category" [formControl]="productForm.controls['subCategory']">
+                                        <option *ngFor="let item of subs" [selected]="product.l3category?.id === item.id">{{item.name}}</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <textarea class="form-control" rows="4" [(ngModel)]="new_product.description" [formControl]="productForm.controls['description']"
+                                        required></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Currency</label>
+                                    <select class="form-control" [(ngModel)]="new_product.currency" [formControl]="productForm.controls['currency']" require>
+                                        <option *ngFor="let currency of currencys" [value]="currency.code">{{currency.code}}</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Enter Price</label>
+                                    <input type="text" class="form-control" [(ngModel)]="new_product.store_price" [formControl]="productForm.controls['store_price']" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Size</label>
+                                    <select class="form-control" [(ngModel)]="new_product.sizes" [formControl]="productForm.controls['sizes']" multiple="">
+                                        <option *ngFor="let item of sizes" [selected]="checkSizeSelected(item.name)" [value]="item.slug">{{item.name}}</option>
+                                    </select>
+                                    <div *ngIf="productForm.controls['sizes'].hasError('required') && formSubmitAttempt" style="color: red">Sizes are required</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Colors</label>
+                                    <select class="form-control" [(ngModel)]="new_product.colors" [formControl]="productForm.controls['colors']" multiple="">
+                                        <option *ngFor="let item of colors" [selected]="checkColorSelected(item.name)" [value]="item.slug">{{item.name}}</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Tag</label>
+                                    <select class="form-control" [(ngModel)]="new_product.tags" [formControl]="productForm.controls['tags']" multiple>
+                                        <option *ngFor="let tag of tags" [selected]="checkTagSelected(tag.name)" [value]="tag.slug">{{tag.name}}</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Other Colors</label>
+                                    <input type="text" class="form-control" [(ngModel)]="new_product.mixed_colors" [formControl]="productForm.controls['otherColors']"
+                                        required>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6 form-group">
+                                        <input type="checkbox" [checked]="newArrival" (change)="arrivalChange()" [(ngModel)]="new_product.is_new_arrival" [formControl]="productForm.controls['is_new_arrival']"
+                                            id="nArrival">
+                                        <label for="nArrival">
+                                            <span></span>
+                                            Is New Arrival
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-6 form-group">
+                                        <input type="checkbox" [checked]="clearance" (change)="clearanceChange()" [(ngModel)]="new_product.is_clearance" [formControl]="productForm.controls['is_clearance']"
+                                            id="nClearance">
+                                        <label for="nClearance">
+                                            <span></span>
+                                            Is Clearance
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Discount Price</label>
+                                    <input type="text" class="form-control" [(ngModel)]="new_product.discount_price" [formControl]="productForm.controls['discount_price']"
+                                        required>
+                                </div>
+
+                                <button type="submit" class="btn btn-accent" [disabled]="loading">
+                                    Update
+                                    <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</div>

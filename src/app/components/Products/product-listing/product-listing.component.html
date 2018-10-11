@@ -1,0 +1,87 @@
+<div class="wrapper">
+    <app-header></app-header>
+    <app-sidebar></app-sidebar>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper" style="min-height: 916px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h3>
+                Manage Your Products
+            </h3>
+            <ol class="breadcrumb">
+                <li>
+                    <a routerLink="#">
+                        <i class="ion-home-android"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="active">Manage Your Products</li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <!-- Info boxes -->
+            <div class="row" style="background: #fff; padding: 0 30px">
+                <div class="box-body" style="position: relative; min-height: 500px;">
+                    <input type="search" placeholder="Search" class="search form-control" [(ngModel)]="query" *ngIf="products.length >= 1">
+                    <a routerLink="/new-product" class="btn btn-sm btn-accent text-bold pull-right">
+                        Create New Product
+                    </a>
+                    <div class="clearfix"></div>
+                    <br>
+                    <br>
+
+
+                    <div *ngIf="products.length >= 1 else noProduct">
+                        <div class="table-responsive">
+                            <table class="table  table-striped no-margin">
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Category</th>
+                                        <th>Type</th>
+                                        <th>Price</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let product of products | filter : query" style="cursor: pointer; outline: none;" routerLink="/products/{{product.id}}">
+                                        <td>
+                                            <span>
+                                                {{product.name}}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span>
+                                                {{product.l1category_name}}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span>
+                                                {{product.l2category_name}}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span>{{product.currency_code}}{{product.store_price | number}}</span>
+                                        </td>
+                                        <td>
+                                            <span class="label label-success" *ngIf="product.status === 'APPROVED'">{{product.status}}</span>
+                                            <span class="label label-error" *ngIf="product.status === 'PENDING'">{{product.status}}</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <ng-template #noProduct>
+                        <div class="text-center">
+                            <span class="no-item">No Products :(</span>
+                        </div>
+                    </ng-template>
+                    <!-- /.table-responsive -->
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

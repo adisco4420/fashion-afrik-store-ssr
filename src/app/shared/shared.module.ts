@@ -4,6 +4,8 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AuthFooterComponent } from './auth-footer/auth-footer.component';
 
+import { FilterPipe } from './pipes/filter.pipe';
+
 
 
 @NgModule({
@@ -13,9 +15,15 @@ import { AuthFooterComponent } from './auth-footer/auth-footer.component';
     declarations: [
         HeaderComponent,
         SidebarComponent,
-        AuthFooterComponent
+        AuthFooterComponent,
+        FilterPipe
     ],
-    exports: [ HeaderComponent, SidebarComponent, AuthFooterComponent]
+    exports: [
+        HeaderComponent,
+        SidebarComponent,
+        AuthFooterComponent,
+        FilterPipe
+    ]
 })
 
 export class SharedModule { }
