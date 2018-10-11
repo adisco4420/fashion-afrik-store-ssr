@@ -8,10 +8,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { StoreRoutes } from './store.routing';
 import { StoreProfileComponent } from './store-profile/store-profile.component';
 
-
-
-
-
 @NgModule({
     imports: [
         CommonModule,

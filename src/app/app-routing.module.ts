@@ -16,6 +16,7 @@ const routes: Routes = [
     { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
     { path: '', loadChildren: './components/User/user.module#UserModule'},
     { path: '', loadChildren: './components/Store/store.module#StoreModule'},
+    { path: '', loadChildren: './components/Customer/customer.module#CustomerModule'},
     { path: '**', redirectTo: '/' },
 ];
 @NgModule({
