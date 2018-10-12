@@ -17,7 +17,6 @@ import {
 
 import { Globals } from './shared/api';
 
-import { FileValidator } from './validators/file-input.validator';
 
 // component
 import { AppComponent } from './app.component';
@@ -31,7 +30,6 @@ import { SharedModule } from './shared/shared.module';
         AppComponent,
         FooterComponent,
         DashboardComponent,
-        FileValidator
     ],
     imports: [
         CommonModule,
