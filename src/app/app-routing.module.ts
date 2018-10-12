@@ -20,10 +20,11 @@ const routes: Routes = [
     { path: '', loadChildren: './components/Inventory/iinventory.module#InventoryModule'},
     { path: '', loadChildren: './components/Orders/order.module#OrderModule'},
     { path: '', loadChildren: './components/Reports/report.module#ReportModule'},
+    { path: '', loadChildren: './components/Misc/misc.module#MiscModule'},
     { path: '**', redirectTo: '/' },
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
-    exports: [RouterModule]
+    exports: [RouterModule ]
 })
 export class AppRoutingModule { }
