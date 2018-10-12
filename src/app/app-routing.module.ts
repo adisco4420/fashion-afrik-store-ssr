@@ -9,7 +9,6 @@ import {
     NoAuthGuardService as NoAuthGuard
   } from './auth/no-auth-guard.service';
 
-
 import { DashboardComponent } from './components/Core/dashboard/dashboard.component';
 
 const routes: Routes = [
@@ -19,6 +18,7 @@ const routes: Routes = [
     { path: '', loadChildren: './components/Customer/customer.module#CustomerModule'},
     { path: '', loadChildren: './components/Products/product.module#ProductModule'},
     { path: '', loadChildren: './components/Inventory/iinventory.module#InventoryModule'},
+    { path: '', loadChildren: './components/Orders/order.module#OrderModule'},
     { path: '**', redirectTo: '/' },
 ];
 @NgModule({
