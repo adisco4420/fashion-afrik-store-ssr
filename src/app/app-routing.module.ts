@@ -19,6 +19,7 @@ const routes: Routes = [
     { path: '', loadChildren: './components/Products/product.module#ProductModule'},
     { path: '', loadChildren: './components/Inventory/iinventory.module#InventoryModule'},
     { path: '', loadChildren: './components/Orders/order.module#OrderModule'},
+    { path: '', loadChildren: './components/Reports/report.module#ReportModule'},
     { path: '**', redirectTo: '/' },
 ];
 @NgModule({

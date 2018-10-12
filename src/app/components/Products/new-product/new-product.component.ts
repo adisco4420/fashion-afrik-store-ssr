@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { FileValidator } from '../../../validators/file-input.validator'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FileValidator } from '../../../shared/validators/file-input.validator';
 import { ProductService } from '../../../services/product.service';
 import { CategoryService } from '../../../services/category.service';
 import { ProductTypeService } from '../../../services/product-type.service';

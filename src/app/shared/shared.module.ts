@@ -5,7 +5,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { AuthFooterComponent } from './auth-footer/auth-footer.component';
 
 import { FilterPipe } from './pipes/filter.pipe';
-import { Validators } from '@angular/forms';
+import { FileValidator } from './validators/file-input.validator';
 
 
 
@@ -18,14 +18,14 @@ import { Validators } from '@angular/forms';
         SidebarComponent,
         AuthFooterComponent,
         FilterPipe,
-        Validators
+        FileValidator
     ],
     exports: [
         HeaderComponent,
         SidebarComponent,
         AuthFooterComponent,
         FilterPipe,
-        Validators
+        FileValidator
     ]
 })
 
